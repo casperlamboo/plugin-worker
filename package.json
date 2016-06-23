@@ -1,6 +1,12 @@
 {
   "name": "plugin-worker",
   "version": "0.0.1",
-  "main": "worker",
+  "jspm": {
+    "name": "plugin-worker",
+    "main": "worker.js",
+    "devDependencies": {
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.12"
+    }
+  },
   "license": "ISC"
 }
