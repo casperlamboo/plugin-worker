@@ -8,8 +8,8 @@
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.12"
     },
     "map": {
-      "./worker.js": {
-        "dev": "./worker-dev.js",
+      "./createWorker.js": {
+        "dev": "./createWorker-dev.js",
         "node": "@empty",
         "production": "@empty"
       }

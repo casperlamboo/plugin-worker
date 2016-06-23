@@ -1,6 +1,6 @@
 var workerFunctions = ['terminate', 'postMessage', 'addEventListener', 'removeEventListener'];
 
-exports.fetch = function(load) {
+function createWorker(load) {
   var codeStr = [
     'importScripts("' + System.baseURL + 'jspm_packages/system.src.js");',
     'System.config({ baseURL: "' + System.baseURL + '" });',
@@ -65,11 +65,7 @@ exports.fetch = function(load) {
     }());
   }
 
-  load.metadata.worker = WorkerShim;
-
-  return '';
+  return WorkerShim;
 }
 
-exports.instantiate = function(load) {
-  return load.metadata.worker;
-};
+module.exports = createWorker;
