@@ -1,4 +1,4 @@
-var workerFunctions = ['terminate', 'postMessage', 'addEventListener', 'removeEventListener'];
+var WORKER_FUNCTIONS = ['terminate', 'postMessage', 'addEventListener', 'removeEventListener'];
 
 function createWorker(load) {
   var codeStr = [
@@ -38,8 +38,8 @@ function createWorker(load) {
         }
         delete this._stack;
 
-        for (var i = 0; i < workerFunctions.length; i ++) {
-          var functionName = workerFunctions[i];
+        for (var i = 0; i < WORKER_FUNCTIONS.length; i ++) {
+          var functionName = WORKER_FUNCTIONS[i];
           this[functionName] = this._worker[functionName];
         }
       } else {
@@ -56,9 +56,9 @@ function createWorker(load) {
 
     this._worker.addEventListener('message', init);
   }
-  for (var i = 0; i < workerFunctions.length; i ++) {
+  for (var i = 0; i < WORKER_FUNCTIONS.length; i ++) {
     (function() {
-      var functionName = workerFunctions[i];
+      var functionName = WORKER_FUNCTIONS[i];
       WorkerShim.prototype[functionName] = function() {
         this._stack.push({ functionName: functionName, arguments: arguments });
       };
