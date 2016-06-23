@@ -1,0 +1,6 @@
+{
+  "name": "plugin-worker",
+  "version": "0.0.1",
+  "main": "worker",
+  "license": "ISC"
+}
