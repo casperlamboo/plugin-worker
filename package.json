@@ -6,6 +6,13 @@
     "main": "worker.js",
     "devDependencies": {
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.12"
+    },
+    "map": {
+      "./worker.js": {
+        "dev": "./worker-dev.js",
+        "node": "@empty",
+        "production": "@empty"
+      }
     }
   },
   "license": "ISC"
