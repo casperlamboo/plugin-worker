@@ -9,9 +9,8 @@
     },
     "map": {
       "./createWorker.js": {
-        "dev": "./createWorker-dev.js",
-        "node": "@empty",
-        "production": "@empty"
+        "node": "./createWorker-production.js",
+        "browser": "./createWorker-dev.js"
       }
     }
   },
