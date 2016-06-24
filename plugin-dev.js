@@ -72,6 +72,8 @@ exports.fetch = function(load) {
         // this happens when the worker emits events before it knows it is loaded
         // search if addEventListener with type message is called
         // emit events on the given listener
+        // note: there is one case this has some unexpected behaviour
+        // when an event listener is added and removed before jspm is loaded the event is still emitted
         for (var i = 0; i < this._stack.length; i ++) {
           var functionName = this._stack[i].functionName;
           var type = this._stack[i].arguments[0];
