@@ -1,10 +1,10 @@
 // This is still a work in progress, it's just to show the direction i'm going
 
 exports.fetch = function(load) {
-  // THIS NEEDS TO BE REPLACED
-  // the fetch function will return a transpiled code string
-  // I want to use SystemJS Builder to create a sfx bundle from load.address
-  // the output of the builder will be returned in this fetch function
+  // THIS IS DUMMY SOURCE CODE
+  // I'd like to use SystemJS Builder to create a sfx bundle (from load.address)
+  // and use that as output of this fetch function.
+  // This way the worker's source is defined inline and doesn't necessarily require extra files.
   var workerCode = [
     'self.addEventListener("message", function(event) {',
     '  self.postMessage(event.data);',
