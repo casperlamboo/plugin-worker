@@ -17,3 +17,19 @@ worker.postmessage('hello world');
 ```
 
 Note: this plugin is still a work in progress, this can only be used in development; the production part of the plugin is not finished.
+
+#Run Example
+
+Install
+
+```npm install```
+
+Go to example
+
+```cd example/```
+
+Start server (for instance `serve`). Or create production bundle
+
+```npm run dist```
+
+dist folder will be located in `example/dist`
