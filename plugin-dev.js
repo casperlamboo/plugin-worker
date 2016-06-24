@@ -5,7 +5,7 @@ for (var i in Worker.prototype) {
   WORKER_FUNCTIONS.push(i);
 }
 
-function createWorker(load) {
+exports.fetch = function(load) {
   // create code string to be used in the worker
   // code loads the worker in load.address
   // when it is fineshed loading the worker post @@@LOADED@@@
@@ -98,7 +98,11 @@ function createWorker(load) {
     }());
   }
 
-  return WorkerShim;
+  load.metadata.worker = WorkerShim;
+
+  return '';
 }
 
-module.exports = createWorker;
+exports.instantiate = function(load) {
+  return load.metadata.worker;
+};

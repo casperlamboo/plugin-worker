@@ -10,9 +10,9 @@
       "systemjs-builder": "npm:systemjs-builder@^0.15.23"
     },
     "map": {
-      "./createWorker.js": {
-        "node": "./createWorker-production.js",
-        "browser": "./createWorker-dev.js"
+      "./plugin.js": {
+        "node": "./plugin-production.js",
+        "browser": "./plugin-dev.js"
       }
     },
     "peerDependencies": {
