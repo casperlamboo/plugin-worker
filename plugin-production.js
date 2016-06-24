@@ -15,7 +15,7 @@ exports.fetch = function(load) {
 }
 
 exports.translate = function(load) {
-  // result of the builder will be in load
+  // result of the builder will be in load.source
 
   load.metadata.format = 'esm';
 
