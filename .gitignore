@@ -1,2 +1,6 @@
 
 jspm_packages
+
+example/jspm_packages
+example/node_modules
+example/dist

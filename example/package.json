@@ -1,18 +1,10 @@
 {
-  "name": "plugin-worker",
-  "version": "0.0.1",
   "jspm": {
-    "name": "plugin-worker",
-    "main": "worker.js",
+    "name": "example",
+    "main": "index",
     "dependencies": {},
     "devDependencies": {
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.12"
-    },
-    "map": {
-      "./plugin.js": {
-        "node": "./plugin-production.js",
-        "browser": "./plugin-dev.js"
-      }
     },
     "peerDependencies": {
       "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
@@ -41,8 +33,17 @@
       }
     }
   },
+  "name": "example",
+  "version": "1.0.0",
   "scripts": {
-    "postinstall": "jspm install && cd example/ && npm install"
+    "postinstall": "jspm install && jspm link worker=../",
+    "dist:clear": "rimraf dist && mkdir -p dist",
+    "dist:sfx": "jspm build index.js dist/app.js",
+    "dist:html": "html-dist index.html --minify  --remove-all --insert app.js -o dist/index.html",
+    "dist": "npm run dist:clear && npm run dist:sfx && npm run dist:html"
   },
-  "license": "ISC"
+  "devDependencies": {
+    "html-dist": "^0.1.0",
+    "rimraf": "^2.5.2"
+  }
 }
