@@ -23,7 +23,7 @@ exports.fetch = function(load) {
   var blob = new Blob([codeStr]);
   var blobURL = self.URL.createObjectURL(blob);
 
-  // because system js loads async it is plausible messages
+  // because system js loads async it is possible messages
   // are send to the webworker before the worker is loaded
   // this shim catches all calls made to the worker and emits
   // then to the worker when it's done loading
@@ -47,7 +47,7 @@ exports.fetch = function(load) {
 
     // function called when webworker is loaded
     var init = (function(event) {
-      // it is plausible the worker emits messages before it emits @@@LOADED@@@
+      // it is possible the worker emits messages before it emits @@@LOADED@@@
       // (this happens when the worker emits a postmessage right after it is initialized)
       if (event.data === '@@@LOADED@@@') {
         // remove the init event listener
