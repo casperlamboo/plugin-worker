@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "jspm": {
     "name": "plugin-worker",
-    "main": "worker.js",
+    "main": {
+      "node": "./plugin-production.js",
+      "browser": "./plugin-dev.js"
+    },
     "dependencies": {},
     "devDependencies": {
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.12"
@@ -44,5 +47,8 @@
   "scripts": {
     "postinstall": "jspm install && cd example/ && npm install"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jspm": "^0.17.0-beta.22"
+  }
 }
