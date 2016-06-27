@@ -1,17 +1,23 @@
 // This is still a work in progress, it's just to show the direction i'm going
+var fs = require('fs');
+var OUT_FILE = './worker-temp.js';
 
 exports.fetch = function(load) {
-  // THIS IS DUMMY SOURCE CODE
-  // I'd like to use SystemJS Builder to create a sfx bundle (from load.address)
-  // and use that as output of this fetch function.
-  // This way the worker's source is defined inline and doesn't necessarily require extra files.
-  var workerCode = [
-    'self.addEventListener("message", function(event) {',
-    '  self.postMessage(event.data);',
-    '}, false);'
-  ].join('\n');
+  var builder = this.builder;
+  return new Promise(function(resolve, reject) {
+    builder.buildStatic(load.address, OUT_FILE).then(function() {
+      fs.readFile(OUT_FILE, 'utf8', function(error, data) {
+        fs.unlink(OUT_FILE);
 
-  return workerCode;
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        resolve(data);
+      });
+    });
+  });
 }
 
 exports.translate = function(load) {
