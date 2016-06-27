@@ -3,10 +3,7 @@
   "version": "0.0.1",
   "jspm": {
     "name": "plugin-worker",
-    "main": {
-      "node": "./plugin-production.js",
-      "browser": "./plugin-dev.js"
-    },
+    "main": "worker.js",
     "dependencies": {},
     "devDependencies": {
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.12"
