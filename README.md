@@ -1,4 +1,4 @@
-# plugin-worker
+# Plugin Worker
 WebWorker plugin for SystemJS
 # Usage
 Install the plugin
