@@ -18,6 +18,8 @@ exports.fetch = function(load) {
     // Because this is async we need a worker shim to catch all messages, isn't there any way to do this sync?
     'System.import("' + load.address + '").then(function() {',
     '  self.postMessage("@@@LOADED@@@")',
+    '}).catch(function(error) {',
+    '  console.warn(error);',
     '});'
   ].join('\n');
   // convert string to url
