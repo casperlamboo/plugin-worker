@@ -1,11 +1,11 @@
 // store all function of a Worker
-var WORKER_FUNCTIONS = [];
-if (Worker !== undefined) {
-  for (var i in Worker.prototype) {
-    if (i === 'onmessage' || i === 'onerror') continue;
-    WORKER_FUNCTIONS.push(i);
-  }
-}
+var WORKER_FUNCTIONS = [
+  'terminate',
+  'postMessage',
+  'addEventListener',
+  'removeEventListener',
+  'dispatchEvent'
+];
 
 exports.fetch = function(load) {
   // create code string to be used in the worker
