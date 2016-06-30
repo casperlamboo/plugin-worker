@@ -38,6 +38,8 @@ exports.fetch = function(load) {
     // call stack
     this._stack = [];
 
+    this._loaded = false;
+
     // passes onerror function from real worker to worker shim
     this._worker.onerror = (function(error) {
       if (this.onerror !== undefined) this.onerror(error);
@@ -55,6 +57,8 @@ exports.fetch = function(load) {
       // it is possible the worker emits messages before it emits @@@LOADED@@@
       // (this happens when the worker emits a postmessage right after it is initialized)
       if (event.data === '@@@LOADED@@@') {
+        this._loaded = true;
+
         // remove the init event listener
         this._worker.removeEventListener('message', init);
 
@@ -66,12 +70,6 @@ exports.fetch = function(load) {
           this._worker[functionName].apply(this._worker, arguments);
         }
         delete this._stack;
-
-        // replace all function of the shim with actual worker functions
-        for (var i = 0; i < WORKER_FUNCTIONS.length; i ++) {
-          var functionName = WORKER_FUNCTIONS[i];
-          this[functionName] = this._worker[functionName];
-        }
       } else {
         // this is little bit of a hack
         // this happens when the worker emits events before it knows it is loaded
@@ -100,7 +98,11 @@ exports.fetch = function(load) {
     (function() {
       var functionName = WORKER_FUNCTIONS[i];
       WorkerShim.prototype[functionName] = function() {
-        this._stack.push({ functionName: functionName, arguments: arguments });
+        if (this._loaded) {
+          this._worker[functionName].apply(this._worker, arguments);
+        } else {
+          this._stack.push({ functionName: functionName, arguments: arguments });
+        }
       };
     }());
   }
