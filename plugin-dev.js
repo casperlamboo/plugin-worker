@@ -1,8 +1,10 @@
 // store all function of a Worker
 var WORKER_FUNCTIONS = [];
-for (var i in Worker.prototype) {
-  if (i === 'onmessage' || i === 'onerror') continue;
-  WORKER_FUNCTIONS.push(i);
+if (Worker !== undefined) {
+  for (var i in Worker.prototype) {
+    if (i === 'onmessage' || i === 'onerror') continue;
+    WORKER_FUNCTIONS.push(i);
+  }
 }
 
 exports.fetch = function(load) {
