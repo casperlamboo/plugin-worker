@@ -3,7 +3,7 @@ var fs = require('fs');
 var OUT_FILE = './worker-temp.js';
 
 exports.fetch = function(load) {
-  var builder = this.systemJSBuilder;
+  var builder = this.builder;
   return new Promise(function(resolve, reject) {
     builder.buildStatic(load.address, OUT_FILE).then(function() {
       fs.readFile(OUT_FILE, 'utf8', function(error, data) {
