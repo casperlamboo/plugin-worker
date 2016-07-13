@@ -13,12 +13,7 @@ SystemJS.config({
   transpiler: "plugin-babel",
   packages: {
     "example": {
-      "main": "index",
-      "meta": {
-        "*.js": {
-          "loader": "plugin-babel"
-        }
-      }
+      "main": "index"
     }
   }
 });
