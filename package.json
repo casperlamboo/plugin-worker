@@ -17,8 +17,8 @@
         "browser": "./plugin-dev.js"
       },
       "./WorkerShim.js": {
-        "node": "./WorkerShim-production.js",
-        "browser": "./WorkerShim-dev.js"
+        "production": "./WorkerShim-production.js",
+        "dev": "./WorkerShim-dev.js"
       }
     },
     "peerDependencies": {
