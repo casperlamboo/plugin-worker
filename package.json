@@ -4,6 +4,9 @@
   "jspm": {
     "name": "plugin-worker",
     "main": "worker.js",
+    "directories": {
+      "lib": "src"
+    },
     "dependencies": {},
     "devDependencies": {
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.12"
