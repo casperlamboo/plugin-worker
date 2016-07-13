@@ -214,7 +214,7 @@ SystemJS.config({
         "pbkdf2": "npm:pbkdf2@3.0.4",
         "browserify-aes": "npm:browserify-aes@1.0.6",
         "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
-        "asn1.js": "npm:asn1.js@4.6.2"
+        "asn1.js": "npm:asn1.js@4.8.0"
       }
     },
     "npm:evp_bytestokey@1.0.0": {
@@ -258,7 +258,7 @@ SystemJS.config({
         "minimalistic-assert": "npm:minimalistic-assert@1.0.0"
       }
     },
-    "npm:asn1.js@4.6.2": {
+    "npm:asn1.js@4.8.0": {
       "map": {
         "bn.js": "npm:bn.js@4.11.4",
         "inherits": "npm:inherits@2.0.1",
