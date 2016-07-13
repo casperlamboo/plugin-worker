@@ -40,7 +40,7 @@
   "scripts": {
     "postinstall": "jspm install && jspm link worker=../",
     "dist:clear": "rimraf dist && mkdir -p dist",
-    "dist:sfx": "jspm build index.js dist/app.js",
+    "dist:sfx": "jspm build src/index.js dist/app.js",
     "dist:html": "html-dist index.html --minify  --remove-all --insert app.js -o dist/index.html",
     "dist": "npm run dist:clear && npm run dist:sfx && npm run dist:html"
   },
