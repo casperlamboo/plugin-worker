@@ -31,10 +31,6 @@ exports.translate = function(load) {
   return [
     'const codeStr = ' + JSON.stringify(load.source) + ';',
     'const blob = new Blob([codeStr]);',
-    'const blobURL = self.URL.createObjectURL(blob);',
-
-    'export default function() {',
-    '  return new Worker(blobURL);',
-    '}'
+    'export default const blobURL = self.URL.createObjectURL(blob);'
   ].join('\n');
 };

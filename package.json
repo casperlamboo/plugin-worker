@@ -15,6 +15,10 @@
       "./plugin.js": {
         "node": "./plugin-production.js",
         "browser": "./plugin-dev.js"
+      },
+      "./WorkerShim.js": {
+        "node": "./WorkerShim-production.js",
+        "browser": "./WorkerShim-dev.js"
       }
     },
     "peerDependencies": {

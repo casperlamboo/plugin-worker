@@ -1,8 +1,9 @@
 // load worker using ./webworker.js
-import MyWorker from './worker.js!worker';
+import workerSource from './worker.js!worker';
+import Worker from 'worker/WorkerShim';
 
 // path to worker is already given in import
-const myWorker = new MyWorker();
+const myWorker = new Worker(workerSource);
 
 // listen to webworker message
 myWorker.addEventListener('message', (event) => {
