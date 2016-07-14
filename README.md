@@ -8,11 +8,12 @@ Install the plugin
 Load a worker
 
 ```javascript
-import Worker from './worker.js!worker';
+import Worker from 'worker/WorkerShim';
+import workerSrc from './worker.js!worker';
 
 // API differs little bit from regular Worker
 // path to worker is already given in the import
-const worker = new Worker();
+const worker = new Worker(workerSrc);
 worker.postmessage('hello world');
 ```
 
