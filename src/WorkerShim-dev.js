@@ -1,11 +1,9 @@
 // store all function of a Worker
-var WORKER_FUNCTIONS = [
-  'terminate',
-  'postMessage',
-  'addEventListener',
-  'removeEventListener',
-  'dispatchEvent'
-];
+var WORKER_FUNCTIONS = [];
+for (var i in Worker.prototype) {
+  if (i === 'onmessage' || i === 'onerror') continue;
+  WORKER_FUNCTIONS.push(i);
+}
 
 // because system js loads async it is possible messages
 // are send to the webworker before the worker is loaded
