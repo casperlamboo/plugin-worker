@@ -5,7 +5,7 @@ var OUT_FILE = './worker-temp.js';
 exports.fetch = function(load) {
   var builder = this.builder;
   return new Promise(function(resolve, reject) {
-    builder.buildStatic(load.address, OUT_FILE).then(function() {
+    builder.buildStatic(load.address, OUT_FILE, { globalName: 'worker' }).then(function() {
       fs.readFile(OUT_FILE, 'utf8', function(error, data) {
         fs.unlink(OUT_FILE);
 
