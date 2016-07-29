@@ -1,12 +1,9 @@
 // This is still a work in progress, it's just to show the direction i'm going
 var fs = require('fs');
-var OUT_FILE = './worker-temp.js';
 
 exports.fetch = function(load) {
   var builder = this.builder;
-  return builder.buildStatic(load.address, OUT_FILE).then(function(outFile) {
-    fs.unlink(OUT_FILE);
-
+  return builder.buildStatic(load.address).then(function(outFile) {
     return outFile.source;
   });
 }
