@@ -4,6 +4,7 @@ var fs = require('fs');
 exports.fetch = function(load) {
   var builder = this.builder;
   return builder.buildStatic(load.address).then(function(outFile) {
+    load.metadata.sourceMap = outFile.sourceMap;
     return outFile.source;
   });
 }
