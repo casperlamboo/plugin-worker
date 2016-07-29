@@ -3,7 +3,9 @@ var fs = require('fs');
 
 exports.fetch = function(load) {
   var builder = this.builder;
-  return builder.buildStatic(load.address).then(function(outFile) {
+  var globalName = load.address.slice(load.address.lastIndexOf('/') + 1, load.address.lastIndexOf('.'));
+
+  return builder.buildStatic(load.address, { globalName: globalName }).then(function(outFile) {
     load.metadata.sourceMap = outFile.sourceMap;
     return outFile.source;
   });
