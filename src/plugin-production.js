@@ -4,12 +4,10 @@ var OUT_FILE = './worker-temp.js';
 
 exports.fetch = function(load) {
   var builder = this.builder;
-  return new Promise(function(resolve, reject) {
-    builder.buildStatic(load.address, OUT_FILE).then(function(outFile) {
-      fs.unlink(OUT_FILE);
+  return builder.buildStatic(load.address, OUT_FILE).then(function(outFile) {
+    fs.unlink(OUT_FILE);
 
-      resolve(outFile.source);
-    });
+    return outFile.source;
   });
 }
 
