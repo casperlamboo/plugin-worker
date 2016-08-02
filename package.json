@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "jspm": {
     "name": "plugin-worker",
-    "main": "worker.js",
+    "main": "index.js",
     "directories": {
       "lib": "src"
     },
@@ -12,9 +12,9 @@
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.12"
     },
     "map": {
-      "./plugin.js": {
-        "node": "./plugin-production.js",
-        "browser": "./plugin-dev.js"
+      "./loader.js": {
+        "node": "./loader-production.js",
+        "browser": "./loader-dev.js"
       },
       "./WorkerShim.js": {
         "production": "./WorkerShim-production.js",

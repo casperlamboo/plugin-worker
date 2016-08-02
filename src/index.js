@@ -1,5 +1,5 @@
 // map is set to load plugin-dev in development and plugin-production in production
-var plugin = require('./plugin.js');
+var plugin = require('./loader.js');
 
 // because it doesn't seem possible to conditionally load either the
 // production or development code as the entry point (main in package.json)
