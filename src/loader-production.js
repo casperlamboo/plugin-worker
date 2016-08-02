@@ -1,4 +1,3 @@
-// This is still a work in progress, it's just to show the direction i'm going
 exports.fetch = function(load) {
   var builder = this.builder;
   var globalName = load.address.slice(load.address.lastIndexOf('/') + 1, load.address.lastIndexOf('.'));
