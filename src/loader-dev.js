@@ -7,7 +7,7 @@ exports.fetch = function(load) {
     'importScripts("' + System.baseURL + 'jspm_packages/system.src.js");',
     'System.config(' + JSON.stringify(System.getConfig()) + ');',
 
-    // Because this is async we need a worker shim to catch all messages, isn't there any way to do this sync?
+    // Because System.import is async we need a worker shim to catch all messages
     'System.import("' + load.address + '").then(function() {',
     '  self.postMessage("@@@LOADED@@@")',
     '}).catch(function(error) {',
