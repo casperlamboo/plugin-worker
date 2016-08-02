@@ -7,7 +7,7 @@ exports.fetch = function(load) {
     load.metadata.sourceMap = outFile.sourceMap;
     return outFile.source;
   });
-}
+};
 
 exports.translate = function(load) {
   // result of the builder will be in load.source
