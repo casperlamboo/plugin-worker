@@ -17,8 +17,6 @@ const worker = new Worker(workerSrc);
 worker.postmessage('hello world');
 ```
 
-Note: this plugin is still a work in progress, this can only be used in development; the production part of the plugin is not finished.
-
 #Run Example
 
 Install
