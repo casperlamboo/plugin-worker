@@ -15,7 +15,7 @@ exports.translate = function(load) {
 
   // return a code string that will
   // create a blob from the transpiled worker code
-  // export a function that will initialize a worker with the blob
+  // export said blob
   return [
     'const codeStr = ' + JSON.stringify(load.source) + ';',
     'const blob = new Blob([codeStr]);',
