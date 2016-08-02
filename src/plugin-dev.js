@@ -21,7 +21,7 @@ exports.fetch = function(load) {
   load.metadata.blobURL = blobURL;
 
   return '';
-}
+};
 
 exports.instantiate = function(load) {
   return load.metadata.blobURL;
