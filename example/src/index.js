@@ -8,7 +8,7 @@ const myWorker = new Worker(workerSource);
 // listen to webworker message
 myWorker.addEventListener('message', (event) => {
   console.log(`Worker said: ${event.data}`);
-}, false);
+});
 
 // Send message to the worker
 myWorker.postMessage('Hello World');
