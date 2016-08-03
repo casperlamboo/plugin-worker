@@ -1,5 +1,5 @@
 # Plugin Worker
-WebWorker plugin for SystemJS
+WebWorker plugin for [SystemJS](https://github.com/systemjs/systemjs)
 # Usage
 Install the plugin
 
