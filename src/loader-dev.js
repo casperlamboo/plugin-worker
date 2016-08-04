@@ -1,3 +1,5 @@
+var WorkerShim = require('./WorkerShim.js');
+
 exports.fetch = function(load) {
   // create code string to be used in the worker
   // code loads the worker in load.address
@@ -24,5 +26,5 @@ exports.fetch = function(load) {
 };
 
 exports.instantiate = function(load) {
-  return load.metadata.blobURL;
+  return WorkerShim.bind(null, load.metadata.blobURL);
 };

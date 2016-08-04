@@ -20,6 +20,6 @@ exports.translate = function(load) {
     'const codeStr = ' + JSON.stringify(load.source) + ';',
     'const blob = new Blob([codeStr]);',
     'const blobURL = self.URL.createObjectURL(blob);',
-    'export default blobURL;'
+    'export default Worker.bind(null, blobURL);'
   ].join('\n');
 };
