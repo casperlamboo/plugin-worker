@@ -11,7 +11,7 @@ exports.fetch = function(load) {
 
     // Because System.import is async we need a worker shim to catch all messages
     'System.import(' + JSON.stringify(load.address) + ').then(function() {',
-    '  self.postMessage("@@@LOADED@@@")',
+    '  self.postMessage("@@@LOADED@@@");',
     '}).catch(function(error) {',
     '  console.warn(error);',
     '});'
