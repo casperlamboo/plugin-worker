@@ -20,11 +20,11 @@ exports.fetch = function(load) {
   var blob = new Blob([codeStr]);
   var blobURL = self.URL.createObjectURL(blob);
 
-  load.metadata.blobURL = blobURL;
+  load.metadata.Worker = WorkerShim.bind(null, blobURL);
 
   return '';
 };
 
 exports.instantiate = function(load) {
-  return WorkerShim.bind(null, load.metadata.blobURL);
+  return load.metadata.Worker;
 };
